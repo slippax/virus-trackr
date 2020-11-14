@@ -70,7 +70,7 @@ font-size: 2em;
 color: darkseagreen;
 border-bottom: 3px solid lightskyblue;
 padding: 5px;
-padding-left: 11px;
+padding-left: 13px;
 `;
 
 const SubTitle = styled.div`
@@ -83,12 +83,13 @@ margin: 0px;
 font-weight: 300;
 font-size: 1em;
 display: inline-flex;
-padding-bottom: 5px;
 color: ${props => props.primary ? 'black' : props.secondary ? 'black' : props.tertiary ? 'black' :'black'};
+padding-bottom: ${props => props.tertiary ? '0px' : '5px'};
 `;
 
 const DataWrapper = styled.div`
 padding: 15px;
+padding-bottom: 10px;
 `;
 
 export const Summary = (props) => {
@@ -99,7 +100,7 @@ export const Summary = (props) => {
     <DataWrapper>
     <SubTitle first>Cases: <Data primary>{props.data.NewConfirmed.toLocaleString()}</Data></SubTitle>
     <SubTitle>Deaths: <Data secondary>{props.data.NewDeaths.toLocaleString()}</Data></SubTitle>
-    <SubTitle>Recoveries: <Data tertiary>{props.data.NewRecovered.toLocaleString()}</Data></SubTitle>
+    <SubTitle>Recovered: <Data tertiary>{props.data.NewRecovered.toLocaleString()}</Data></SubTitle>
     </DataWrapper>
     </Views>
     <Views>

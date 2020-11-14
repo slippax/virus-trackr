@@ -65,19 +65,19 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`    
-    font-size: 4.5em;
-    margin-top: 15px;
-    margin-bottom: 0px;
+    font-size: 4.2em;
+    margin-top: 0px;
+    margin-bottom: -25px;
     color: darkseagreen;
     animation-name: ${Fade};
     animation-duration: 1s;
 `;
 
 const Subtitle = styled.h2`
-    font-size: 1.7em;
+    font-size: 1.6em;
     text-align:center;
-    padding-bottom: 15px;
-    margin-bottom: 0px;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
     margin-top: 0px;
     color: lightskyblue;
     animation-name: ${Fade};

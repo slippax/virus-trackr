@@ -14,14 +14,12 @@ export const Api = () => {
                     setTimeout(() => {
                         setLoaded(true);
                     }, 1300);
-setTimeout(() => {
-    setLoaded2(true);
-}, 2000);
-                    console.log(result);
+                    setTimeout(() => {
+                        setLoaded2(true);
+                    }, 2000);
                 },
                 (error) => {
                     setError(error);
-                    console.log(error);
                 }
             )
     }, [])
@@ -30,7 +28,7 @@ setTimeout(() => {
         <div>
             {error ? (<div>{error}</div>) : (<div />)}
             {isLoaded ? (<Summary data={data.Global} />) : (<Loader />)}
-            {isLoaded2 ? (<CountrySummary data={data}/>) : (<div></div>)}
+            {isLoaded2 ? (<CountrySummary data={data} />) : (<div></div>)}
         </div>
     )
 }
