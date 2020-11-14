@@ -4,28 +4,33 @@ import styled, { keyframes } from 'styled-components';
 
 const ScaleInTop = keyframes`
   0% {
-    -webkit-transform: scaleY(0.4);
-            transform: scaleY(0.4);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
   }
   100% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
   }
+
   0% {
-    -webkit-transform: scaleY(0.4);
-            transform: scaleY(0.4);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
   }
   100% {
     -webkit-transform: scaleY(1);
             transform: scaleY(1);
-    -webkit-transform-origin: 0% 100%;
-            transform-origin: 0% 100%;
+    -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+    opacity: 1;
   }
 `;
 const Fade = keyframes`
@@ -57,10 +62,12 @@ margin-top:10px;
   align-items: center;
   animation-name: ${ScaleInTop};
 animation-duration: 1.5s;
+margin-bottom: 50px;
 `;
 const View = styled.div`
-padding: 2em;
+padding: 1.6em;
 border-radius:5px;
+padding-bottom: 20px;
 `;
 const SubTitle = styled.div`
 font-weight: 500;
@@ -78,7 +85,7 @@ color: ${props => props.primary ? 'black' : props.secondary ? 'black' : props.te
 `;
 const Title = styled.h2`
 margin-top: 0px;
-margin-bottom: 0px;
+margin-bottom: -5px;
 font-size: 2em;
 color: darkseagreen;
 display:flex;
@@ -110,7 +117,7 @@ padding-bottom: 20px;
 `;
 
 export const CountrySummary = (props) => {
-        const [country, setCountry] = useState('croatia');
+        const [country, setCountry] = useState('canada');
 
         const countrySetter = (value) => {
                 let temp = value.replace(/\s+/g, '-');
@@ -120,7 +127,7 @@ export const CountrySummary = (props) => {
         }
         return (
                 <Container>
-                        {props.data.Countries.filter(name => name.Slug === country).map(filteredName => (<div key={filteredName.CountryCode}><ContainerWrapper><Title primary>{filteredName.Country}</Title><InputBox><TextField onChange={(event) => countrySetter(event.target.value.toLocaleLowerCase())} id="outlined-basic" label="Search..." variant="filled" /></InputBox><BoxWrapper><View><Title>New</Title><SubTitle>Cases: <Data>{filteredName.NewConfirmed}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.NewDeaths}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.NewRecovered}</Data></SubTitle></View><View><Title>Total</Title><SubTitle>Cases: <Data>{filteredName.TotalConfirmed}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.TotalDeaths}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.TotalRecovered}</Data></SubTitle></View></BoxWrapper></ContainerWrapper></div>))}
+                        {props.data.Countries.filter(name => name.Slug === country).map(filteredName => (<div key={filteredName.CountryCode}><ContainerWrapper><Title primary>{filteredName.Country}</Title><InputBox><TextField onChange={(event) => countrySetter(event.target.value.toLocaleLowerCase())} id="outlined-basic" label="Search..." variant="filled" /></InputBox><BoxWrapper><View><Title>New</Title><SubTitle>Cases: <Data>{filteredName.NewConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.NewDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.NewRecovered.toLocaleString()}</Data></SubTitle></View><View><Title>Total</Title><SubTitle>Cases: <Data>{filteredName.TotalConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.TotalDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.TotalRecovered.toLocaleString()}</Data></SubTitle></View></BoxWrapper></ContainerWrapper></div>))}
                 </Container>
         );
 }

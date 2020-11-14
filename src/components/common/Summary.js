@@ -57,7 +57,7 @@ animation-duration: 1.5s;
 
 const Views = styled.div`
 background-color: papayawhip;
-margin: 1em;
+margin: 0.6em;
 animation-name: ${Fade};
 animation-duration: 1s;
 border-radius:5px;
@@ -70,7 +70,7 @@ font-size: 2em;
 color: darkseagreen;
 border-bottom: 3px solid lightskyblue;
 padding: 5px;
-padding-left: 15px;
+padding-left: 11px;
 `;
 
 const SubTitle = styled.div`
@@ -81,7 +81,7 @@ font-size: 1.1em;
 const Data = styled.p`
 margin: 0px;
 font-weight: 300;
-font-size: 1.1em;
+font-size: 1em;
 display: inline-flex;
 padding-bottom: 5px;
 color: ${props => props.primary ? 'black' : props.secondary ? 'black' : props.tertiary ? 'black' :'black'};
@@ -97,17 +97,17 @@ export const Summary = (props) => {
     <Views>
     <Title>Global New</Title>
     <DataWrapper>
-    <SubTitle first>Cases: <Data primary>{props.data.NewConfirmed}</Data></SubTitle>
-    <SubTitle>Deaths: <Data secondary>{props.data.NewDeaths}</Data></SubTitle>
-    <SubTitle>Recoveries: <Data tertiary>{props.data.NewRecovered}</Data></SubTitle>
+    <SubTitle first>Cases: <Data primary>{props.data.NewConfirmed.toLocaleString()}</Data></SubTitle>
+    <SubTitle>Deaths: <Data secondary>{props.data.NewDeaths.toLocaleString()}</Data></SubTitle>
+    <SubTitle>Recoveries: <Data tertiary>{props.data.NewRecovered.toLocaleString()}</Data></SubTitle>
     </DataWrapper>
     </Views>
     <Views>
     <Title>Global Total</Title>
     <DataWrapper>
-    <SubTitle first>Cases: <Data primary>{props.data.TotalConfirmed}</Data></SubTitle>
-    <SubTitle>Deaths: <Data secondary>{props.data.TotalDeaths}</Data></SubTitle>
-    <SubTitle>Recovered: <Data tertiary>{props.data.TotalRecovered}</Data></SubTitle>
+    <SubTitle first>Cases: <Data primary>{props.data.TotalConfirmed.toLocaleString()}</Data></SubTitle>
+    <SubTitle>Deaths: <Data secondary>{props.data.TotalDeaths.toLocaleString()}</Data></SubTitle>
+    <SubTitle>Recovered: <Data tertiary>{props.data.TotalRecovered.toLocaleString()}</Data></SubTitle>
     </DataWrapper>
     </Views>
 </Container>

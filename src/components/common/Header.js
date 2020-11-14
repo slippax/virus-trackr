@@ -74,7 +74,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
-    font-size: 2.5em;
+    font-size: 1.7em;
     text-align:center;
     padding-bottom: 15px;
     margin-bottom: 0px;
@@ -88,7 +88,7 @@ export const Header = () => {
     return (
         <Container>
         <Title>Virus Trackr</Title>
-        <Subtitle>Clean & Accurate COVID Data.</Subtitle>
+        <Subtitle>accurate & simple covid19 data.</Subtitle>
     </Container>
     )
 }
