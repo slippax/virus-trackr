@@ -62,11 +62,15 @@ const Container = styled.div`
     animation-name: ${Expand};
     animation-duration: 1.5s;
     border-radius:1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    &:hover {
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 `;
 
 const Title = styled.h1`    
     font-size: 4.2em;
-    margin-top: 0px;
+    margin-top: -10px;
     margin-bottom: -25px;
     color: darkseagreen;
     animation-name: ${Fade};

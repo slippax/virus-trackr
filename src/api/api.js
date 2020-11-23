@@ -13,6 +13,7 @@ export const Api = () => {
                     setData(result)
                     setTimeout(() => {
                         setLoaded(true);
+                        console.log(result);
                     }, 1300);
                     setTimeout(() => {
                         setLoaded2(true);
