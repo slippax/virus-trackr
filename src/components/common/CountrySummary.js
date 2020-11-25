@@ -67,9 +67,9 @@ margin-bottom: 50px;
 `;
 
 const View = styled.div`
-margin: 1em;
+margin: 1.1em;
 border-radius:5px;
-margin-bottom: 5px;
+margin-bottom: 10px;
 `;
 
 const SubTitle = styled.div`
