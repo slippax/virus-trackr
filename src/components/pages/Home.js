@@ -1,11 +1,13 @@
 import React from 'react'
-import {Api} from '../../api/api';
-import {Header} from '../common';
+import { SummaryData } from '../../api/summarydata';
+import { DateData } from '../../api/datedata';
+import { Header } from '../common';
 const Home = () => {
     return (
         <div>
-            <Header/>
-            <Api/>
+            <Header />
+            <SummaryData />
+            <DateData />
         </div>
     )
 }

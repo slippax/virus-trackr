@@ -63,7 +63,7 @@ margin-top:5px;
 align-items: center;
 animation-name: ${ScaleInTop};
 animation-duration: 1.5s;
-margin-bottom: 50px;
+margin-bottom: 20px;
 `;
 
 const View = styled.div`

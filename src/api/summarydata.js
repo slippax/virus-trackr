@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Summary, Loader, CountrySummary } from '../components/common';
-export const Api = () => {
+export const SummaryData = () => {
     const [error, setError] = useState(null);
     const [data, setData] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
@@ -13,7 +13,6 @@ export const Api = () => {
                     setData(result)
                     setTimeout(() => {
                         setLoaded(true);
-                        console.log(result);
                     }, 1300);
                     setTimeout(() => {
                         setLoaded2(true);
