@@ -7,6 +7,6 @@ export const Loader = () => {
 }
 
 export const BoxLoader = () => {
-    return(<FoldingCube color="darkseagreen"/>
+    return(<FoldingCube size="15" color="darkseagreen"/>
     );
 }

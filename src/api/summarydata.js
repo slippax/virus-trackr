@@ -29,7 +29,6 @@ export const SummaryData = () => {
 
     return (
         <div>
-            {error ? (<div>{error}</div>) : (<div />)}
             {isLoaded ? (<Summary data={data.Global} error={error} />) : (<Loader />)}
             {isLoaded2 ? (<CountrySummary data={data} error={error} />) : (<div/>)}
             </div>

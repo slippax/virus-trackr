@@ -49,7 +49,7 @@ export const DateData = () => {
                         }, 3000);
                     },
                     (error) => {
-                        setError(error);
+                        setError(error.TypeError);
                     }
                 )
         }
@@ -66,7 +66,7 @@ export const DateData = () => {
                         }, 3000);
                     },
                     (error) => {
-                        setError(error);
+                        setError(error.TypeError);
                     }
                 )
         }

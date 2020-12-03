@@ -101,6 +101,7 @@ justify-content:center;
 font-size: ${props => props.primary ? '2.3em' : '1.2em'};
 color: darkseagreen;
 display:flex;
+align-items: center;
 `;
 
 const SubHeader = styled.p`
@@ -119,6 +120,13 @@ justify-content:center;
 align-items:center;
 margin-bottom: 0px;
 padding-bottom: 12px;
+`;
+
+const LoaderBox = styled.div`
+float: left;
+margin-left: 15px;
+margin-top: 10px;
+width:0px;
 `;
 
 export const Picker = (props) => {
@@ -142,8 +150,10 @@ export const Picker = (props) => {
     return (
         <Container>
             <ContainerWrapper>
+            <LoaderBox>{props.info ? (<div></div>):(<div><BoxLoader/></div>)}
+            </LoaderBox>
                 <Title primary>{props.country}</Title>
-                {props.info ? (<div/>):(<BoxLoader/>)}
+               
                 <InputBox>
                     <Seperator>
                         <TextField onChange={props.changed} id="outlined-basic" label="Country" variant="filled"
