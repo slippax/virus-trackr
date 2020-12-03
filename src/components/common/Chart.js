@@ -68,8 +68,16 @@ animation-duration: 1.5s;
 margin-bottom: 50px;
 animation-name: ${ScaleInTop};
 animation-duration: 1.5s;
+@media (min-width: 1281px) {
+
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+    
+}
 `;
 const ContainerWrapper = styled.div`
+
 margin: auto;
 background-color:papayawhip;
 padding-top: 10px;
@@ -103,7 +111,7 @@ export const Chart = (props) => {
             <ContainerWrapper>
                 <LineChart margin={{
                     top: 5, right:22, left: -20, bottom: 5,
-                }} width={374} height={300} data={props.data} >
+                }} width={380} height={410} data={props.data} >
                     <Line strokeWidth='2px' type="monotone" dataKey="Cases" stroke="darkseagreen" dot={{ r: 0 }} activeDot={{ r: 5 }} />
                     <CartesianGrid stroke="#ccc" />
                     <XAxis textAnchor='middle' interval={'preserveEnd'} dataKey={"Date"} tickFormatter={timeStr => moment(timeStr).format('MMM DD')} />

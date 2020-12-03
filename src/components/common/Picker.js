@@ -3,6 +3,7 @@ import styled, {keyframes} from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import {Loader} from './Loader'
 
 const ScaleInTop = keyframes`
   0% {
@@ -63,7 +64,7 @@ const Container = styled.div`
 font-size: 1.1em;
 display:flex;
 justify-content:center;
-margin-top:5px;
+margin-top:10px;
 align-items: center;
 animation-duration: 1.5s;
 margin-bottom: -5px;
@@ -81,7 +82,7 @@ border-radius: 5px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 border-bottom-left-radius:0px;
 border-bottom-right-radius:0px;
-width: 360px;
+width: 366px;
 border-bottom: 3px solid lightskyblue;
 padding-left: 7px;
 padding-right: 7px;
@@ -94,18 +95,17 @@ box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 
 const Title = styled.h2`
 margin-top: 1.5px;
-margin-bottom: -8px;
+margin-bottom: -10px;
 padding: 0px;
-font-size: ${props => props.primary ? '2.3em' : '2em'};
+justify-content:center;
+font-size: ${props => props.primary ? '2.3em' : '1.2em'};
 color: darkseagreen;
 display:flex;
-justify-content: ${props => props.primary ? 'center' : 'none'};
 `;
 
 const SubHeader = styled.p`
 margin-top: 0px;
-margin-bottom: -10px;
-padding-left: 10px;
+margin-bottom: -5px;
 color: lightskyblue;
 font-size: 1.3em;
 font-weight: 600;
@@ -143,7 +143,7 @@ export const Picker = (props) => {
         <Container>
             <ContainerWrapper>
                 <Title primary>{props.country}</Title>
-                <SubHeader>Search country...</SubHeader>
+                {props.info ? (<div/>):(<Loader/>)}
                 <InputBox>
                     <Seperator>
                         <TextField onChange={props.changed} id="outlined-basic" label="Search..." variant="filled"
@@ -173,10 +173,12 @@ export const Picker = (props) => {
                         open={typeOpen}
                         onClose={() => handleTypeClose()}
                         onOpen={() => handleTypeOpen()}
-                        value={'New cases'}
+                        value={props.settingtype}
                         onChange={props.type}
                     >
-                        <MenuItem value={'New cases'}>New cases</MenuItem>
+                        <MenuItem value={'confirmed'}>New cases</MenuItem>
+                        <MenuItem value={'deaths'}>Deaths</MenuItem>
+                        <MenuItem value={'recovered'}>Recovered</MenuItem>
                     </Select>
                 </InputBox>
             </ContainerWrapper>

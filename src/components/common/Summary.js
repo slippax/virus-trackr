@@ -48,11 +48,18 @@ const Fade = keyframes`
 `;
 
 const Container = styled.div`
-display:flex;
+display: flex;
 justify-content:center;
-margin-top:5px;
+align-items: flex-start;
 animation-name: ${ScaleInBottom};
 animation-duration: 1.5s;
+@media (min-width: 1281px) {
+        margin-right: 50px;
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  margin-right: 50px;
+}
 `;
 
 const Views = styled.div`

@@ -64,10 +64,17 @@ align-items: center;
 animation-name: ${ScaleInTop};
 animation-duration: 1.5s;
 margin-bottom: 20px;
+@media (min-width: 1281px) {
+        margin-right: 50px;
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+        margin-right: 50px;
+}
 `;
 
 const View = styled.div`
-margin: 1.1em;
+margin: 1.3em;
 border-radius:5px;
 margin-bottom: 10px;
 `;
@@ -161,7 +168,7 @@ export const CountrySummary = (props) => {
         }
         return (
                 <Container>
-                        {props.data.Countries.filter(name => name.Slug === country).map(filteredName => (<div key={filteredName.CountryCode}><ContainerWrapper><Title primary>{filteredName.Country}</Title><SubHeader>Search country...</SubHeader><InputBox><TextField onChange={(event) => countrySetter(event.target.value.toLocaleLowerCase())} id="outlined-basic" label="Search..." variant="filled" /></InputBox><BoxWrapper><View><Title>Today</Title><SubTitle>Cases: <Data>{filteredName.NewConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.NewDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.NewRecovered.toLocaleString()}</Data></SubTitle></View><Border /><View><Title border>Total</Title><SubTitle>Cases: <Data>{filteredName.TotalConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.TotalDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.TotalRecovered.toLocaleString()}</Data></SubTitle></View></BoxWrapper></ContainerWrapper></div>))}
+                        {props.Message === "Caching in progress" ? (<div/>):(<div>{props.data.Countries.filter(name => name.Slug === country).map(filteredName => (<div key={filteredName.CountryCode}><ContainerWrapper><Title primary>{filteredName.Country}</Title><InputBox><TextField onChange={(event) => countrySetter(event.target.value.toLocaleLowerCase())} id="outlined-basic" label="Search country..." variant="filled" /></InputBox><BoxWrapper><View><Title>Today</Title><SubTitle>Cases: <Data>{filteredName.NewConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.NewDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.NewRecovered.toLocaleString()}</Data></SubTitle></View><Border /><View><Title border>Total</Title><SubTitle>Cases: <Data>{filteredName.TotalConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.TotalDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.TotalRecovered.toLocaleString()}</Data></SubTitle></View></BoxWrapper></ContainerWrapper></div>))}</div>)}              
                 </Container>
         );
 }

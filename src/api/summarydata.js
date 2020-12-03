@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Summary, Loader, CountrySummary } from '../components/common';
+import styled from 'styled-components';
+
 export const SummaryData = () => {
     const [error, setError] = useState(null);
     const [data, setData] = useState([]);
@@ -11,6 +13,7 @@ export const SummaryData = () => {
             .then(
                 (result) => {
                     setData(result)
+                    console.log(result);
                     setTimeout(() => {
                         setLoaded(true);
                     }, 1300);
@@ -28,7 +31,7 @@ export const SummaryData = () => {
         <div>
             {error ? (<div>{error}</div>) : (<div />)}
             {isLoaded ? (<Summary data={data.Global} />) : (<Loader />)}
-            {isLoaded2 ? (<CountrySummary data={data} />) : (<div></div>)}
-        </div>
+            {isLoaded2 ? (<CountrySummary data={data} />) : (<Loader />)}
+            </div>
     )
 }
