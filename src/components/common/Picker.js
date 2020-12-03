@@ -3,7 +3,7 @@ import styled, {keyframes} from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import {Loader} from './Loader'
+import {BoxLoader} from './Loader'
 
 const ScaleInTop = keyframes`
   0% {
@@ -143,10 +143,10 @@ export const Picker = (props) => {
         <Container>
             <ContainerWrapper>
                 <Title primary>{props.country}</Title>
-                {props.info ? (<div/>):(<Loader/>)}
+                {props.info ? (<div/>):(<BoxLoader/>)}
                 <InputBox>
                     <Seperator>
-                        <TextField onChange={props.changed} id="outlined-basic" label="Search..." variant="filled"
+                        <TextField onChange={props.changed} id="outlined-basic" label="Country" variant="filled"
                         />
                     </Seperator>
                     <Seperator>

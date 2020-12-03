@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Chart, Picker, Loader } from '../components/common';
 import { getDate } from '../utilities/utils';
 export const DateData = () => {
-    const [error, setError] = useState([]);
+    const [error, setError] = useState('');
     const [data, setData] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
     const [setting, setSetting] = useState('thirty');
@@ -32,7 +32,7 @@ export const DateData = () => {
                         }, 3000);
                     },
                     (error) => {
-                        setError(error);
+                        setError(error.TypeError);
                     }
                 )
         }
@@ -75,7 +75,7 @@ export const DateData = () => {
     return (
         <div>
             {error ? (<div>{error}</div>) : (<div />)}
-            {isLoaded ? (<div><Picker info={load} settingtype={typeSetting} setting={setting} days={(event)=> setSetting(event.target.value)} type={(event)=> setTypeSetting(event.target.value)} changed={(event) => countrySetter(event.target.value.toLocaleLowerCase())} country={country.charAt(0).toUpperCase()+country.slice(1)}></Picker><Chart data={data}></Chart></div>) : (<Loader/>)}
+            {isLoaded ? (<div><Picker info={load} settingtype={typeSetting} setting={setting} days={(event)=> setSetting(event.target.value)} type={(event)=> setTypeSetting(event.target.value)} changed={(event) => countrySetter(event.target.value.toLocaleLowerCase())} country={country.charAt(0).toUpperCase()+country.slice(1)}></Picker><Chart data={data}></Chart></div>) : (<div/>)}
         </div>
     )
 }

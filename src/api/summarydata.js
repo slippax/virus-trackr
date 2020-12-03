@@ -3,7 +3,7 @@ import { Summary, Loader, CountrySummary } from '../components/common';
 import styled from 'styled-components';
 
 export const SummaryData = () => {
-    const [error, setError] = useState(null);
+    const [error, setError] = useState('');
     const [data, setData] = useState([]);
     const [isLoaded, setLoaded] = useState(false);
     const [isLoaded2, setLoaded2] = useState(false);
@@ -22,7 +22,7 @@ export const SummaryData = () => {
                     }, 2000);
                 },
                 (error) => {
-                    setError(error);
+                    setError(error.TypeError);
                 }
             )
     }, [])
@@ -30,8 +30,8 @@ export const SummaryData = () => {
     return (
         <div>
             {error ? (<div>{error}</div>) : (<div />)}
-            {isLoaded ? (<Summary data={data.Global} />) : (<Loader />)}
-            {isLoaded2 ? (<CountrySummary data={data} />) : (<Loader />)}
+            {isLoaded ? (<Summary data={data.Global} error={error} />) : (<Loader />)}
+            {isLoaded2 ? (<CountrySummary data={data} error={error} />) : (<div/>)}
             </div>
     )
 }
