@@ -86,11 +86,11 @@ box-shadow: 0 4px 1px 0 rgba(0, 0, 0, 0.2);
 padding: 5px;
 margin-top: 8px;
 border-radius: 5px;
-background-color: #e5d7bf;
+background-color: #ffffff;
 &:hover {
 box-shadow: 0 6px 1px 0 rgba(0,0,0,0.2);
 font-weight: 600;
-background-color: #fff8dc;
+background-color: #2a475e;
 }
 `;
 
@@ -119,7 +119,7 @@ align-items: center;
 `;
 
 const ContainerWrapper = styled.div`
-background-color:papayawhip;
+background-color:#7289da;
 border-radius: 5px;
 animation-name: ${Fade};
 animation-duration: 1s;
@@ -141,7 +141,7 @@ padding-bottom: 12px;
 
 const Border = styled.div`
 border-right: 3px solid lightskyblue;
-height: 159px;
+height: 160px;
 margin-top: 18px;
 padding-bottom: 40px;
 margin-left: 15px;
@@ -151,7 +151,7 @@ const SubHeader = styled.p`
 margin-top: 0px;
 margin-bottom: -10px;
 padding-left: 10px;
-color: lightskyblue;
+color: #ffffff;
 font-size: 1.3em;
 font-weight: 600;
 text-align: center;

@@ -56,7 +56,7 @@ const Fade = keyframes`
 `;
 
 const Container = styled.div`
-    background-color: papayawhip;
+    background-color: #2c2f33;
     text-align:center;
     padding-top: 1px;
     animation-name: ${Expand};
@@ -72,7 +72,7 @@ const Title = styled.h1`
     font-size: 4.2em;
     margin-top: -10px;
     margin-bottom: -25px;
-    color: darkseagreen;
+    color: #7289da;
     animation-name: ${Fade};
     animation-duration: 1s;
 `;
@@ -83,7 +83,7 @@ const Subtitle = styled.h2`
     padding-bottom: 5px;
     margin-bottom: 10px;
     margin-top: 0px;
-    color: lightskyblue;
+    color: #7289da;
     animation-name: ${Fade};
     animation-duration: 1.5s;
   

@@ -63,7 +63,7 @@ animation-duration: 1.5s;
 `;
 
 const Views = styled.div`
-background-color: papayawhip;
+background-color: #2c2f33;
 margin: 0.6em;
 animation-name: ${Fade};
 animation-duration: 1s;
@@ -78,7 +78,7 @@ const Title = styled.h2`
 margin-top: 0px;
 margin-bottom: -5px;
 font-size: 2em;
-color: darkseagreen;
+color:#7289da;
 padding: 0px;
 padding-bottom: 0px;
 padding-left: 10px;
@@ -91,7 +91,7 @@ box-shadow: 0 4px 1px 0 rgba(0, 0, 0, 0.2);
 padding: 5px;
 margin-top: 7px;
 border-radius: 5px;
-background-color: #e5d7bf;
+background-color: #99aab5;
 &:hover {
 box-shadow: 0 6px 1px 0 rgba(0,0,0,0.2);
 font-weight: 600;
@@ -112,14 +112,14 @@ const DataWrapper = styled.div`
 padding: 15px;
 padding-bottom: 10px;
 padding-top: 1px;
-border-top: 3px solid lightskyblue;
+border-top: 3px solid #99aab5;
 `;
 
 const SubHeader = styled.p`
 margin-top: 5px;
 margin-bottom: -15px;
 padding-left: 10px;
-color: lightskyblue;
+color: #7289da;
 font-size: 1.3em;
 font-weight: 600;
 `;
