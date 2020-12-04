@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack://src/index.css"],"names":[],"mappings":"AAAA,KACE,QAAS,CACT,wCAA0C,CAC1C,kCAAmC,CACnC,iCAAkC,CAClC,wBACF","file":"main.d4d15ff8.chunk.css","sourcesContent":["body {\n  margin: 0;\n  font-family: 'Saira Condensed', sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  background-color: lightskyblue;\n}"]}
