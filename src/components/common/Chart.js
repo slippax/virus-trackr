@@ -64,7 +64,6 @@ display:flex;
 justify-content:center;
 margin-top:5px;
 align-items: center;
-animation-duration: 1.5s;
 margin-bottom: 50px;
 animation-name: ${ScaleInTop};
 animation-duration: 1.5s;
@@ -79,7 +78,7 @@ animation-duration: 1.5s;
 const ContainerWrapper = styled.div`
 
 margin: auto;
-background-color:papayawhip;
+background-color:${p=>p.theme.primaryColor};
 padding-top: 10px;
 padding-left:0px;
 padding-bottom: 0px;
@@ -87,9 +86,13 @@ border-bottom-left-radius:5px;
 border-bottom-right-radius:5px;
 animation-name: ${Fade};
 animation-duration: 1s;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0px 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 4px -1px rgba(0, 0, 0, 0.4);
 &:hover {
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 10px -1px rgba(0, 0, 0, 0.4)
 }
 `;
 
@@ -112,7 +115,7 @@ export const Chart = (props) => {
                 <LineChart margin={{
                     top: 5, right:22, left: -20, bottom: 5,
                 }} width={380} height={410} data={props.data} >
-                    <Line strokeWidth='2px' type="monotone" dataKey="Cases" stroke="darkseagreen" dot={{ r: 0 }} activeDot={{ r: 5 }} />
+                    <Line strokeWidth='2px' type="monotone" dataKey="Cases" stroke="#7289da" dot={{ r: 0 }} activeDot={{ r: 5 }} />
                     <CartesianGrid stroke="#ccc" />
                     <XAxis textAnchor='middle' interval={'preserveEnd'} dataKey={"Date"} tickFormatter={timeStr => moment(timeStr).format('MMM DD')} />
                     <YAxis tickFormatter={DataFormater} />

@@ -63,14 +63,18 @@ animation-duration: 1.5s;
 `;
 
 const Views = styled.div`
-background-color: #2c2f33;
+background-color:${p => p.theme.primaryColor};
 margin: 0.6em;
 animation-name: ${Fade};
 animation-duration: 1s;
 border-radius:5px;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0px 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 4px -1px rgba(0, 0, 0, 0.4);
 &:hover {
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 10px -1px rgba(0, 0, 0, 0.4)
 }
 `;
 
@@ -78,33 +82,34 @@ const Title = styled.h2`
 margin-top: 0px;
 margin-bottom: -5px;
 font-size: 2em;
-color:#7289da;
+color:${p => p.theme.secondaryColor};
 padding: 0px;
 padding-bottom: 0px;
 padding-left: 10px;
 `;
 
 const SubTitle = styled.div`
-font-weight: 500;
+font-weight: 600;
 font-size: 1.1em;
 box-shadow: 0 4px 1px 0 rgba(0, 0, 0, 0.2);
 padding: 5px;
 margin-top: 7px;
 border-radius: 5px;
-background-color: #99aab5;
+color: ${p=> p.theme.secondaryColor};
+background-color: ${p=>p.theme.bodyBackgroundColor};
 &:hover {
 box-shadow: 0 6px 1px 0 rgba(0,0,0,0.2);
 font-weight: 600;
-background-color: #fff8dc;
+background-color: ${p=>p.theme.primaryColor};
 }
 `;
 
 const Data = styled.p`
 margin: 0px;
-font-weight: 300;
+font-weight: 500;
 font-size: 1em;
 display: inline-flex;
-color: ${props => props.primary ? 'black' : props.secondary ? 'black' : props.tertiary ? 'black' :'black'};
+color: ${p=>p.theme.bodyFontColor};
 padding-bottom: ${props => props.tertiary ? '0px' : '0px'};
 `;
 
@@ -112,16 +117,16 @@ const DataWrapper = styled.div`
 padding: 15px;
 padding-bottom: 10px;
 padding-top: 1px;
-border-top: 3px solid #99aab5;
+border-top: 5px solid ${p => p.theme.borderColor};
 `;
 
 const SubHeader = styled.p`
 margin-top: 5px;
 margin-bottom: -15px;
 padding-left: 10px;
-color: #7289da;
+color: ${p => p.theme.bodyFontColor};
 font-size: 1.3em;
-font-weight: 600;
+font-weight: 700;
 `;
 
 export const Summary = (props) => {

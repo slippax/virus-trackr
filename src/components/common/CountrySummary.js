@@ -86,11 +86,12 @@ box-shadow: 0 4px 1px 0 rgba(0, 0, 0, 0.2);
 padding: 5px;
 margin-top: 8px;
 border-radius: 5px;
-background-color: #ffffff;
+color: ${p=>p.theme.secondaryColor};
+background-color: ${p=>p.theme.bodyBackgroundColor};
 &:hover {
 box-shadow: 0 6px 1px 0 rgba(0,0,0,0.2);
 font-weight: 600;
-background-color: #2a475e;
+background-color: ${p=>p.theme.primaryColor};
 }
 `;
 
@@ -99,14 +100,15 @@ margin: 0px;
 font-weight: 300;
 font-size: 1.1em;
 display: inline-flex;
-color: ${props => props.primary ? 'black' : props.secondary ? 'black' : props.tertiary ? 'black' : 'black'};
+color: ${p=>p.theme.bodyFontColor};
 `;
 const Title = styled.h2`
 margin-top: 1.5px;
 margin-bottom: -8px;
 padding: 0px;
+font-weight: 800;
 font-size: ${props => props.primary ? '2.3em' : '2em'};
-color: darkseagreen;
+color: ${p=> p.theme.bodyFontColor};
 display:flex;
 justify-content: ${props => props.primary ? 'center' : 'none'};
 `;
@@ -119,13 +121,17 @@ align-items: center;
 `;
 
 const ContainerWrapper = styled.div`
-background-color:#7289da;
+background-color:${p=>p.theme.primaryColor};
 border-radius: 5px;
 animation-name: ${Fade};
 animation-duration: 1s;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0px 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 4px -1px rgba(0, 0, 0, 0.4);
 &:hover {
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 10px -1px rgba(0, 0, 0, 0.4)
 }
 `;
 
@@ -134,13 +140,13 @@ margin-top:15px;
 display: flex;
 justify-content:center;
 align-items:center;
-border-bottom: 3px solid lightskyblue;
+border-bottom: 5px solid ${p=>p.theme.borderColor};
 margin-bottom: -20px;
 padding-bottom: 12px;
 `;
 
 const Border = styled.div`
-border-right: 3px solid lightskyblue;
+border-right: 5px solid ${p=>p.theme.borderColor};
 height: 160px;
 margin-top: 18px;
 padding-bottom: 40px;
@@ -149,13 +155,31 @@ margin-left: 15px;
 
 const SubHeader = styled.p`
 margin-top: 0px;
-margin-bottom: -10px;
-padding-left: 10px;
-color: #ffffff;
-font-size: 1.3em;
+margin-bottom: -8px;
+color: ${p=>p.theme.secondaryColor};
+font-size: 2em;
 font-weight: 600;
-text-align: center;
 `;
+
+const TypeField = styled(TextField)`
+label {
+  color: #7c7c7c;
+    }
+input {
+  color: #ffffff;
+  background-color: ${p => p.theme.bodyBackgroundColor};
+  border-radius: 5px;
+}
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0px 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 4px -1px rgba(0, 0, 0, 0.4);
+&:hover {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 10px -1px rgba(0, 0, 0, 0.4)
+}
+`;
+
 
 export const CountrySummary = (props) => {
         const [country, setCountry] = useState('canada');
@@ -168,7 +192,7 @@ export const CountrySummary = (props) => {
         }
         return (
                 <Container>
-                        {props.error ? (<div>ERROR</div>):(<div>{props.data.Countries.filter(name => name.Slug === country).map(filteredName => (<div key={filteredName.CountryCode}><ContainerWrapper><Title primary>{filteredName.Country}</Title><InputBox><TextField onChange={(event) => countrySetter(event.target.value.toLocaleLowerCase())} id="outlined-basic" label="Search country..." variant="filled" /></InputBox><BoxWrapper><View><Title>Today</Title><SubTitle>Cases: <Data>{filteredName.NewConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.NewDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.NewRecovered.toLocaleString()}</Data></SubTitle></View><Border /><View><Title border>Total</Title><SubTitle>Cases: <Data>{filteredName.TotalConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.TotalDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.TotalRecovered.toLocaleString()}</Data></SubTitle></View></BoxWrapper></ContainerWrapper></div>))}</div>)}              
+                        {props.undefined ? (<div>ERROR</div>):(<div>{props.data.Countries.filter(name => name.Slug === country).map(filteredName => (<div key={filteredName.CountryCode}><ContainerWrapper><Title primary>{filteredName.Country}</Title><InputBox><TypeField onChange={(event) => countrySetter(event.target.value.toLocaleLowerCase())} id="outlined-basic" label="Country" variant="filled" /></InputBox><BoxWrapper><View><SubHeader>Today</SubHeader><SubTitle>Cases: <Data>{filteredName.NewConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.NewDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.NewRecovered.toLocaleString()}</Data></SubTitle></View><Border /><View><SubHeader>Total</SubHeader><SubTitle>Cases: <Data>{filteredName.TotalConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.TotalDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.TotalRecovered.toLocaleString()}</Data></SubTitle></View></BoxWrapper></ContainerWrapper></div>))}</div>)}              
                 </Container>
         );
 }

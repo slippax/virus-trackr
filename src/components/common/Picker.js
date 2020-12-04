@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import {BoxLoader} from './Loader'
+import { BoxLoader } from './Loader'
 
 const ScaleInTop = keyframes`
   0% {
@@ -77,19 +77,24 @@ padding-right: 5px;
 `;
 
 const ContainerWrapper = styled.div`
-background-color:papayawhip;
+background-color:${p => p.theme.primaryColor};
 border-radius: 5px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 border-bottom-left-radius:0px;
 border-bottom-right-radius:0px;
 width: 366px;
-border-bottom: 3px solid lightskyblue;
+border-bottom: 5px solid ${p => p.theme.borderColor};
 padding-left: 7px;
 padding-right: 7px;
 animation-name: ${Fade};
 animation-duration: 1s;
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0px 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 4px -1px rgba(0, 0, 0, 0.4);
 &:hover {
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 10px -1px rgba(0, 0, 0, 0.4)
 }
 `;
 
@@ -99,18 +104,44 @@ margin-bottom: -10px;
 padding: 0px;
 justify-content:center;
 font-size: ${props => props.primary ? '2.3em' : '1.2em'};
-color: darkseagreen;
+color: ${p => p.theme.bodyFontColor};
 display:flex;
 align-items: center;
 `;
 
-const SubHeader = styled.p`
-margin-top: 0px;
-margin-bottom: -5px;
-color: lightskyblue;
-font-size: 1.3em;
-font-weight: 600;
-text-align: center;
+const Field = styled(Select)`
+background-color: ${p => p.theme.bodyBackgroundColor}!important;
+border-radius: 5px;
+&&{
+  color: ${p=>p.theme.bodyFontColor};
+}
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0px 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 4px -1px rgba(0, 0, 0, 0.4);
+&:hover {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 10px -1px rgba(0, 0, 0, 0.4)
+}
+`
+
+const TypeField = styled(TextField)`
+label {
+  color: ${p=>p.theme.bodyFontColor};
+    }
+input {
+  color: ${p=>p.theme.bodyFontColor};
+  background-color: ${p => p.theme.bodyBackgroundColor};
+  border-radius: 5px;
+}
+box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0px 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 4px -1px rgba(0, 0, 0, 0.4);
+&:hover {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 10px -1px rgba(0, 0, 0, 0.4)
+}
 `;
 
 const InputBox = styled.div`
@@ -130,68 +161,67 @@ width:0px;
 `;
 
 export const Picker = (props) => {
-    const [open, setOpen] = useState(false);
-    const [typeOpen, setTypeOpen] = useState(false);
-    const handleClose = () => {
-        setOpen(false);
-    };
+  const [open, setOpen] = useState(false);
+  const [typeOpen, setTypeOpen] = useState(false);
+  const handleClose = () => {
+    setOpen(false);
+  };
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
+  const handleOpen = () => {
+    setOpen(true);
+  };
 
-    const handleTypeClose = () => {
-        setTypeOpen(false);
-    };
+  const handleTypeClose = () => {
+    setTypeOpen(false);
+  };
 
-    const handleTypeOpen = () => {
-        setTypeOpen(true);
-    };
-    return (
-        <Container>
-            <ContainerWrapper>
-            <LoaderBox>{props.info ? (<div></div>):(<div><BoxLoader/></div>)}
-            </LoaderBox>
-                <Title primary>{props.country}</Title>
-               
-                <InputBox>
-                    <Seperator>
-                        <TextField onChange={props.changed} id="outlined-basic" label="Country" variant="filled"
-                        />
-                    </Seperator>
-                    <Seperator>
-                        <Select
-                            inputProps={{ style: { fontSize: 50 } }} // font size of input text
-                            variant="filled"
-                            labelId="demo-controlled-open-select-label"
-                            id="outlined-basic"
-                            open={open}
-                            onClose={() => handleClose()}
-                            onOpen={() => handleOpen()}
-                            value={props.setting}
-                            onChange={props.days}
-                        >
-                            <MenuItem value={'all'}>All time</MenuItem>
-                            <MenuItem value={'seven'}>1 week</MenuItem>
-                            <MenuItem value={'thirty'}>30 days</MenuItem>
-                        </Select>
-                    </Seperator>
-                    <Select
-                        variant="filled"
-                        labelId="demo-controlled-open-select-label"
-                        id="outlined-basic"
-                        open={typeOpen}
-                        onClose={() => handleTypeClose()}
-                        onOpen={() => handleTypeOpen()}
-                        value={props.settingtype}
-                        onChange={props.type}
-                    >
-                        <MenuItem value={'confirmed'}>New cases</MenuItem>
-                        <MenuItem value={'deaths'}>Deaths</MenuItem>
-                        <MenuItem value={'recovered'}>Recovered</MenuItem>
-                    </Select>
-                </InputBox>
-            </ContainerWrapper>
-        </Container>
-    )
+  const handleTypeOpen = () => {
+    setTypeOpen(true);
+  };
+  return (
+    <Container>
+      <ContainerWrapper>
+        <LoaderBox>{props.info ? (<div></div>) : (<div><BoxLoader /></div>)}
+        </LoaderBox>
+        <Title primary>{props.country}</Title>
+
+        <InputBox>
+          <Seperator>
+            <TypeField onChange={props.changed} id="outlined-basic" label="Country" variant="filled"
+            />
+          </Seperator>
+          <Seperator>
+            <Field
+              variant="filled"
+              labelId="demo-controlled-open-select-label"
+              id="outlined-basic"
+              open={open}
+              onClose={() => handleClose()}
+              onOpen={() => handleOpen()}
+              value={props.setting}
+              onChange={props.days}
+            >
+              <MenuItem value={'all'}>All time</MenuItem>
+              <MenuItem value={'seven'}>1 week</MenuItem>
+              <MenuItem value={'thirty'}>30 days</MenuItem>
+            </Field>
+          </Seperator>
+          <Field
+            variant="filled"
+            labelId="demo-controlled-open-select-label"
+            id="outlined-basic"
+            open={typeOpen}
+            onClose={() => handleTypeClose()}
+            onOpen={() => handleTypeOpen()}
+            value={props.settingtype}
+            onChange={props.type}
+          >
+            <MenuItem value={'confirmed'}>New cases</MenuItem>
+            <MenuItem value={'deaths'}>Deaths</MenuItem>
+            <MenuItem value={'recovered'}>Recovered</MenuItem>
+          </Field>
+        </InputBox>
+      </ContainerWrapper>
+    </Container>
+  )
 }

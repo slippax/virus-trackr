@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Summary, Loader, CountrySummary } from '../components/common';
-import styled from 'styled-components';
 
 export const SummaryData = () => {
     const [error, setError] = useState('');

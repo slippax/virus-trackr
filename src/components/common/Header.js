@@ -56,15 +56,20 @@ const Fade = keyframes`
 `;
 
 const Container = styled.div`
-    background-color: #2c2f33;
+    background-color: ${p => p.theme.primaryColor};
     text-align:center;
     padding-top: 1px;
     animation-name: ${Expand};
     animation-duration: 1.5s;
     border-radius:1px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    &:hover {
-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0px 1px 1px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 4px -1px rgba(0, 0, 0, 0.4);
+&:hover {
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0px 3px 10px -1px rgba(0, 0, 0, 0.4)
 }
 `;
 
@@ -72,7 +77,7 @@ const Title = styled.h1`
     font-size: 4.2em;
     margin-top: -10px;
     margin-bottom: -25px;
-    color: #7289da;
+    color: ${p=>p.theme.bodyFontColor};
     animation-name: ${Fade};
     animation-duration: 1s;
 `;
@@ -83,11 +88,9 @@ const Subtitle = styled.h2`
     padding-bottom: 5px;
     margin-bottom: 10px;
     margin-top: 0px;
-    color: #7289da;
+    color: ${p=>p.theme.secondaryColor};
     animation-name: ${Fade};
-    animation-duration: 1.5s;
-  
-`;
+    animation-duration: 1.5s;`;
 export const Header = () => {
     return (
         <Container>
