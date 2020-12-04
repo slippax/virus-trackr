@@ -1,5 +1,5 @@
-import React from 'react'
-import styled, {keyframes} from 'styled-components';
+import React from "react";
+import styled, { keyframes } from "styled-components";
 const Expand = keyframes`
   0% {
     -webkit-transform: scaleY(0);
@@ -56,39 +56,38 @@ const Fade = keyframes`
 `;
 
 const Container = styled.div`
-    background-color: papayawhip;
-    text-align:center;
-    padding-top: 1px;
-    animation-name: ${Expand};
-    animation-duration: 1.5s;
-    border-radius:1px;
+  background-color: papayawhip;
+  text-align: center;
+  padding-top: 1px;
+  animation-name: ${Expand};
+  animation-duration: 1.5s;
+  border-radius: 1px;
 `;
 
-const Title = styled.h1`    
-    font-size: 4.5em;
-    margin-top: 15px;
-    margin-bottom: 0px;
-    color: darkseagreen;
-    animation-name: ${Fade};
-    animation-duration: 1s;
+const Title = styled.h1`
+  font-size: 4.5em;
+  margin-top: 15px;
+  margin-bottom: 0px;
+  color: darkseagreen;
+  animation-name: ${Fade};
+  animation-duration: 1s;
 `;
 
 const Subtitle = styled.h2`
-    font-size: 2.5em;
-    text-align:center;
-    padding-bottom: 15px;
-    margin-bottom: 0px;
-    margin-top: 0px;
-    color: lightskyblue;
-    animation-name: ${Fade};
-    animation-duration: 1.5s;
-  
+  font-size: 2.5em;
+  text-align: center;
+  padding-bottom: 15px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  color: lightskyblue;
+  animation-name: ${Fade};
+  animation-duration: 1.5s;
 `;
 export const Header = () => {
-    return (
-        <Container>
-        <Title>Virus Trackr</Title>
-        <Subtitle>Clean & Accurate COVID Data.</Subtitle>
+  return (
+    <Container>
+      <Title>Virus Trackr</Title>
+      <Subtitle>Clean & Accurate COVID Data.</Subtitle>
     </Container>
-    )
-}
+  );
+};
