@@ -89,7 +89,6 @@ const Home = (props) => {
             <Header />
             <Button>
             <DarkModeSwitch
-      style={{ marginBottom: '0rem', color: isDarkMode? '#ffffff' : '#23272a', fill:'#23272a' }}
       checked={isDarkMode}
       onChange={toggleDarkMode}
       size={40}
