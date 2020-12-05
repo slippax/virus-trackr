@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/virus-trackr/static/css/main.027a4f7f.chunk.css",
-    "main.js": "/virus-trackr/static/js/main.6d43c4e0.chunk.js",
-    "main.js.map": "/virus-trackr/static/js/main.6d43c4e0.chunk.js.map",
+    "main.js": "/virus-trackr/static/js/main.9ac5ab71.chunk.js",
+    "main.js.map": "/virus-trackr/static/js/main.9ac5ab71.chunk.js.map",
     "runtime-main.js": "/virus-trackr/static/js/runtime-main.35866d2a.js",
     "runtime-main.js.map": "/virus-trackr/static/js/runtime-main.35866d2a.js.map",
-    "static/js/2.dd49fde4.chunk.js": "/virus-trackr/static/js/2.dd49fde4.chunk.js",
-    "static/js/2.dd49fde4.chunk.js.map": "/virus-trackr/static/js/2.dd49fde4.chunk.js.map",
+    "static/js/2.e238eab8.chunk.js": "/virus-trackr/static/js/2.e238eab8.chunk.js",
+    "static/js/2.e238eab8.chunk.js.map": "/virus-trackr/static/js/2.e238eab8.chunk.js.map",
     "static/js/3.498e5474.chunk.js": "/virus-trackr/static/js/3.498e5474.chunk.js",
     "static/js/3.498e5474.chunk.js.map": "/virus-trackr/static/js/3.498e5474.chunk.js.map",
     "index.html": "/virus-trackr/index.html",
     "static/css/main.027a4f7f.chunk.css.map": "/virus-trackr/static/css/main.027a4f7f.chunk.css.map",
-    "static/js/2.dd49fde4.chunk.js.LICENSE.txt": "/virus-trackr/static/js/2.dd49fde4.chunk.js.LICENSE.txt"
+    "static/js/2.e238eab8.chunk.js.LICENSE.txt": "/virus-trackr/static/js/2.e238eab8.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.35866d2a.js",
-    "static/js/2.dd49fde4.chunk.js",
+    "static/js/2.e238eab8.chunk.js",
     "static/css/main.027a4f7f.chunk.css",
-    "static/js/main.6d43c4e0.chunk.js"
+    "static/js/main.9ac5ab71.chunk.js"
   ]
 }
