@@ -105,6 +105,8 @@ const Button = styled.div`
 padding-left: 5px;
 padding-right: 5px;
 margin-bottom: 5px;
+animation-name: ${Fade};
+animation-duration: 1.5s;
 `;
 
 export const Header = (props) => {
@@ -112,7 +114,7 @@ export const Header = (props) => {
         <Container>       
         <Title>Virus Trackr</Title>
         <HeaderBox>  
-        <Subtitle>accurate & simple covid19 data.</Subtitle>
+        <Subtitle>accurate & simple covid19 data</Subtitle>
         <Button>
         <Switch clicked={(type)=>props.clicked(type)}/>
         </Button>
