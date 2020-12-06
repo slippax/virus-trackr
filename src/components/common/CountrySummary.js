@@ -166,7 +166,7 @@ label {
   color: #7c7c7c;
     }
 input {
-  color: #ffffff;
+  color: ${p=>p.theme.bodyFontColor};
   background-color: ${p => p.theme.bodyBackgroundColor};
   border-radius: 5px;
 }

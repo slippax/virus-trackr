@@ -4,3 +4,4 @@ export * from './Loader';
 export * from './CountrySummary';
 export * from './Chart';
 export * from './Picker';
+export * from './Switch';

@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import {Switch} from './Switch';
 const Expand = keyframes`
   0% {
     -webkit-transform: scaleY(0);
@@ -76,7 +77,7 @@ const Container = styled.div`
 const Title = styled.h1`    
     font-size: 4.2em;
     margin-top: -10px;
-    margin-bottom: -25px;
+    margin-bottom: -30px;
     color: ${p=>p.theme.bodyFontColor};
     animation-name: ${Fade};
     animation-duration: 1s;
@@ -85,17 +86,36 @@ const Title = styled.h1`
 const Subtitle = styled.h2`
     font-size: 1.6em;
     text-align:center;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+    padding-bottom:0px;
+    margin-bottom: 0px;
     margin-top: 0px;
     color: ${p=>p.theme.secondaryColor};
     animation-name: ${Fade};
-    animation-duration: 1.5s;`;
-export const Header = () => {
+    animation-duration: 1.5s;
+    margin-left: 60px;
+    `;
+
+const HeaderBox = styled.div`
+display:flex;
+align-items:center;
+justify-content:center;
+`;
+
+const Button = styled.div`
+padding-left: 5px;
+margin-bottom: 10px;
+`;
+
+export const Header = (props) => {
     return (
-        <Container>
+        <Container>       
         <Title>Virus Trackr</Title>
+        <HeaderBox>  
         <Subtitle>accurate & simple covid19 data.</Subtitle>
+        <Button>
+        <Switch clicked={(type)=>props.clicked(type)}/>
+        </Button>
+        </HeaderBox>
     </Container>
   );
 };
