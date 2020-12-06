@@ -114,7 +114,7 @@ export const Header = (props) => {
         <Container>       
         <Title>Virus Trackr</Title>
         <HeaderBox>  
-        <Subtitle>accurate & simple covid19 data</Subtitle>
+        <Subtitle>accurate & simple covid19 data.</Subtitle>
         <Button>
         <Switch clicked={(type)=>props.clicked(type)}/>
         </Button>

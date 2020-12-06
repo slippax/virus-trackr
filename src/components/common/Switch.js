@@ -13,7 +13,7 @@ export const Switch = (props) => {
       };
     return (
         <div>
-            <DarkModeSwitch
+            <DarkModeSwitch sunColor='#23272a' moonColor='#ffffff'
                 checked={isDarkMode}
                 onChange={toggleDarkMode}
                 size={40}
