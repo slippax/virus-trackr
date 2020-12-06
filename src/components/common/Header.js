@@ -84,7 +84,7 @@ const Title = styled.h1`
 `;
 
 const Subtitle = styled.h2`
-    font-size: 1.6em;
+    font-size: 1.5em;
     text-align:center;
     padding-bottom:0px;
     margin-bottom: 0px;
@@ -92,7 +92,7 @@ const Subtitle = styled.h2`
     color: ${p=>p.theme.secondaryColor};
     animation-name: ${Fade};
     animation-duration: 1.5s;
-    margin-left: 60px;
+    margin-left: 40px;
     `;
 
 const HeaderBox = styled.div`
@@ -103,7 +103,8 @@ justify-content:center;
 
 const Button = styled.div`
 padding-left: 5px;
-margin-bottom: 10px;
+padding-right: 5px;
+margin-bottom: 5px;
 `;
 
 export const Header = (props) => {
