@@ -5,7 +5,7 @@ const theme = {
     bodyBackgroundColor: '#ffffff',
     bodyBackgroundSecondaryColor: '#99aab5',
     bodyFontColor: '#23272a',
-    borderColor: '#7289da'
+    borderColor: '#ffffff'
   };
 
   export default theme;

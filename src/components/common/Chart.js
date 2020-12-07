@@ -114,7 +114,7 @@ export const Chart = (props) => {
             <ContainerWrapper>
                 <LineChart margin={{
                     top: 5, right:22, left: -20, bottom: 5,
-                }} width={380} height={410} data={props.data} >
+                }} width={374} height={410} data={props.data} >
                     <Line strokeWidth='2px' type="monotone" dataKey="Cases" stroke="#7289da" dot={{ r: 0 }} activeDot={{ r: 5 }} />
                     <CartesianGrid stroke="#ccc" />
                     <XAxis textAnchor='middle' interval={'preserveEnd'} dataKey={"Date"} tickFormatter={timeStr => moment(timeStr).format('MMM DD')} />

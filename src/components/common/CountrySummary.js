@@ -147,7 +147,7 @@ padding-bottom: 12px;
 
 const Border = styled.div`
 border-right: 5px solid ${p=>p.theme.borderColor};
-height: 160px;
+height: 162px;
 margin-top: 18px;
 padding-bottom: 40px;
 margin-left: 15px;
@@ -192,7 +192,7 @@ export const CountrySummary = (props) => {
         }
         return (
                 <Container>
-                        {props.undefined ? (<div>ERROR</div>):(<div>{props.data.Countries.filter(name => name.Slug === country).map(filteredName => (<div key={filteredName.CountryCode}><ContainerWrapper><Title primary>{filteredName.Country}</Title><InputBox><TypeField onChange={(event) => countrySetter(event.target.value.toLocaleLowerCase())} id="outlined-basic" label="Country" variant="filled" /></InputBox><BoxWrapper><View><SubHeader>Today</SubHeader><SubTitle>Cases: <Data>{filteredName.NewConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.NewDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.NewRecovered.toLocaleString()}</Data></SubTitle></View><Border /><View><SubHeader>Total</SubHeader><SubTitle>Cases: <Data>{filteredName.TotalConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.TotalDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.TotalRecovered.toLocaleString()}</Data></SubTitle></View></BoxWrapper></ContainerWrapper></div>))}</div>)}              
+                        {props.data.Countries === undefined ? (<div>ERROR</div>):(<div>{props.data.Countries.filter(name => name.Slug === country).map(filteredName => (<div key={filteredName.CountryCode}><ContainerWrapper><Title primary>{filteredName.Country}</Title><InputBox><TypeField onChange={(event) => countrySetter(event.target.value.toLocaleLowerCase())} id="outlined-basic" label="Country" variant="filled" /></InputBox><BoxWrapper><View><SubHeader>Today</SubHeader><SubTitle>Cases: <Data>{filteredName.NewConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.NewDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.NewRecovered.toLocaleString()}</Data></SubTitle></View><Border /><View><SubHeader>Total</SubHeader><SubTitle>Cases: <Data>{filteredName.TotalConfirmed.toLocaleString()}</Data></SubTitle><SubTitle>Deaths: <Data>{filteredName.TotalDeaths.toLocaleString()}</Data></SubTitle><SubTitle>Recoveries: <Data>{filteredName.TotalRecovered.toLocaleString()}</Data></SubTitle></View></BoxWrapper></ContainerWrapper></div>))}</div>)}              
                 </Container>
         );
 }

@@ -73,7 +73,7 @@ animation-duration: 1.5s;
 `;
 
 const Seperator = styled.div`
-padding-right: 5px;
+padding-right: 8px;
 `;
 
 const ContainerWrapper = styled.div`
@@ -82,7 +82,7 @@ border-radius: 5px;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 border-bottom-left-radius:0px;
 border-bottom-right-radius:0px;
-width: 366px;
+width: 360px;
 border-bottom: 5px solid ${p => p.theme.borderColor};
 padding-left: 7px;
 padding-right: 7px;
@@ -150,7 +150,7 @@ display: flex;
 justify-content:center;
 align-items:center;
 margin-bottom: 0px;
-padding-bottom: 12px;
+padding-bottom: 10px;
 `;
 
 const LoaderBox = styled.div`
@@ -184,13 +184,10 @@ export const Picker = (props) => {
         <LoaderBox>{props.info ? (<div></div>) : (<div><BoxLoader /></div>)}
         </LoaderBox>
         <Title primary>{props.country}</Title>
-
         <InputBox>
-          <Seperator>
             <TypeField onChange={props.changed} id="outlined-basic" label="Country" variant="filled"
             />
-          </Seperator>
-          <Seperator>
+                        <Seperator/>
             <Field
               variant="filled"
               labelId="demo-controlled-open-select-label"
@@ -205,7 +202,7 @@ export const Picker = (props) => {
               <MenuItem value={'seven'}>1 week</MenuItem>
               <MenuItem value={'thirty'}>30 days</MenuItem>
             </Field>
-          </Seperator>
+            <Seperator/>
           <Field
             variant="filled"
             labelId="demo-controlled-open-select-label"
